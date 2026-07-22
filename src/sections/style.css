@@ -1,0 +1,198 @@
+:root {
+
+  /* ========== FONT FAMILY ========== */
+  --font-primary: "Inter", "Poppins", system-ui, -apple-system, sans-serif;
+
+  /* ========== FONT SIZES ========== */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 28px;
+  --text-2xl: 40px;
+  --text-3xl: 65px;
+
+  /* ========== LINE HEIGHT ========== */
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
+
+  /* ========= Font-weight =========== */
+  --fw-300: 300;
+  --fw-500: 500;
+  --fw-700: 700;
+
+  /* ========== COLORS (based on your image) ========== */
+
+  /* Backgrounds */
+  --bg-main: #f5f7fb;
+  --bg-soft: #eef1f7;
+  --bg-card: #ffffff;
+
+  /* Primary (blue-purple from mountains) */
+  --primary: #6c7ae0;
+  --primary-light: #a5b4fc;
+  --primary-dark: #4f46e5;
+  --primary-navy: #000080;
+
+  /* Accent (sun pastel) */
+  --accent: #f4c7b8;
+  --accent-soft: #fde2dc;
+
+  /* Text */
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+
+  /* Borders */
+  --border-light: #e5e7eb;
+
+  /* Shadow */
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Spacing */
+  --space-xs: 5px;
+  --space-sm: 10px;
+  --space-md: 20px;
+  --space-lg: 40px;
+
+
+  --sectional-padding: 2rem 2rem 0rem 2rem;
+}
+
+.header-section{
+  position: relative;
+ 
+}
+.header-section::before{
+  content: "";
+  position: absolute;
+  background: url('header.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  right: 0%;
+  top: 0;
+  width: 700px;
+  height: 700px;
+}
+
+body{
+    font-family: var(--font-primary);
+      background: linear-gradient(
+            to bottom,
+            #f8f9ff 0%,
+            #f3f5fb 100%
+  );
+
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+h1{
+    font-size: var(--text-3xl) !important;
+    font-weight: var(--fw-700);  
+}
+
+h2{
+    font-size: var(--text-2xl);
+}
+
+h3{
+    font-size: var(--text-lg) !important;
+    font-weight: bolder !important;
+    line-height: var(--lh-tight);
+}
+
+p{
+    font-size: var(--text-md);
+    color: var(--text-main);
+    line-height: var(--lh-tight);
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.clear-text{    
+    border: 0;
+}
+
+.input-layout{
+    padding: 2rem 2rem;
+    width: 100%;
+    box-shadow: 1px 1px 2px 0px #000000;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.06),
+    0 8px 16px rgba(0, 0, 0, 0.04),
+    0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.header-section{
+    padding: var(--sectional-padding);
+}
+
+.main-section{
+    padding: var(--sectional-padding);
+}
+
+.input-area{
+    width: 96%;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    margin-left: -2rem;
+}
+
+.add-task{
+    width: 100%;
+    background-color: var(--primary-dark);
+    color: #ffffff;
+    padding: 1rem 2rem ;
+    border-radius: 5px;
+    border: 0px;
+    background: linear-gradient(
+    to right,
+    #6366f1,
+    #4f46e5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+
+.icon-box{
+    border-radius: 12px;
+    padding: 1rem;
+    border: 0;
+    
+    .add-icon{
+        background-color: #eef2ff;        
+     }
+
+    .delete-icon{
+        background-color: rgba(239, 68, 68, 0.08);
+    }
+}
+
+.what-have-you-done{
+    color: var(--primary-navy);
+}
+
+.copy-btn{
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 0;
+    border-radius: 10px;
+    padding: .25rem 2rem;
+}
