@@ -1,4 +1,4 @@
-import { redis } from "../../api/upstash/redis";
+import { redis } from "../utils/upstash/redis";
 
 export const addToQueue = async (textInput)=>{
 
