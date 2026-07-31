@@ -1,4 +1,4 @@
-import { redis } from './upstash/redis';
+import { redis } from './upstash/redis.js';
 
 const UNIQUE_ID = process.env.UNIQUE_ID;
 

@@ -14,7 +14,7 @@ const Main = () => {
     const [textInput, setTextInput] = React.useState(null);
     const {alert, handleAlert} = UseAlert() ;
     const {apiState, handleApiState} = UseApiState();
-    console.log(apiState);
+
     const handleChange = (e)=>{
         try {
             setTextInput(e.target.value);  
@@ -35,7 +35,6 @@ const Main = () => {
 
             else{
                const response = await addToQueue(textInput);
-               console.log(response)
                handleApiState({loading: false, success: true, error: false})
             }
         } catch (error) {
