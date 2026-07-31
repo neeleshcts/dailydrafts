@@ -1,13 +1,9 @@
-import { redis } from '../../api/upstash/redis.js';
-
-export const addToQueue = async (textInput)=>{
-
-    try {
-        console.log(textInput);
-        const response  = await redis.json.arrappend(`${import.meta.env.UNIQUE_ID}`, "$.inputs", JSON.stringify(textInput));
-        return response;
-        
-    } catch (error) {
-        console.log(error.message)
-    }
+export async function addToQueue(textInput) {
+  const res = await fetch('/api/queue', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ input: textInput }),
+  });
+  if (!res.ok) throw new Error('Failed to save task');
+  return res.json();
 }
