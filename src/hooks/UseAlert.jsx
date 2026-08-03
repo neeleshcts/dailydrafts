@@ -5,11 +5,13 @@ export const UseAlert = ()=>{
     const  [alert , setAlert] = React.useState({        
         severity: "",
         message: "",
+        status: false
     });
 
     const handleAlert = (status, severity , message)=>{
         setAlert(alert => ({
-            ...alert,            
+            ...alert,  
+            status,          
             severity,
             message
         }))        

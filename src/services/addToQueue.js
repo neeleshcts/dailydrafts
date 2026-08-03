@@ -1,4 +1,5 @@
 export async function addToQueue(textInput) {
+  console.log(`${textInput} inside the addToQueue`);
   const res = await fetch('/api/queue', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

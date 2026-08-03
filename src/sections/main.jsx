@@ -8,43 +8,42 @@ import { addToQueue } from '../services/addToQueue';
 import React from 'react';
 import { UseAlert } from '../hooks/UseAlert';
 import { UseApiState } from '../hooks/UseApiState';
-
+import Loading from '../ui/loading';
 
 const Main = () => {
-    const [textInput, setTextInput] = React.useState(null);
+    const [textInput, setTextInput] = React.useState("");
     const {alert, handleAlert} = UseAlert() ;
     const {apiState, handleApiState} = UseApiState();
 
     const handleChange = (e)=>{
-        try {
             setTextInput(e.target.value);  
-            handleAlert(false , "", "");
-            
-        } catch (error) {
-            handleAlert(true, 'error', error.message);
-        }
+            handleAlert(false , "", "");        
     }
 
     const submitTask = async (e)=>{
         try {
-            handleApiState({loading: true , success: false, error: false})            
             e.preventDefault();
-            if(textInput === null || textInput === ""){
+            handleApiState({loading: true , success: false, error: false})            
+            
+            if(textInput === null || textInput === ""){                
                 throw new Error("Empty task cannot be submitted");
             }
 
             else{
                const response = await addToQueue(textInput);
-               handleApiState({loading: false, success: true, error: false})
+               handleApiState({loading: false, success: true, error: false});
+               handleAlert(true, "success", "Task added.");
+               setTextInput('');
             }
         } catch (error) {
              handleApiState({loading: false, success: false, error: true});
-             handleAlert("error" , error.message);
+             handleAlert(true, "error" , error.message);
         }
     }
 
   return (
     <Box component={"main"} className='main-section'>
+        {apiState.loading && <Loading isLoading={apiState.loading} />}
         {alert.status && <Alert severity={alert.severity}>{alert.message}</Alert>}
             <Grid container columnSpacing={2}>
                 <Grid item size={6} component={"form"} onSubmit={submitTask}>
