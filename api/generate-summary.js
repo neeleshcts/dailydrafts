@@ -36,7 +36,7 @@ export default async function handler(req, res) {
         messages: [
           {
             role: 'user',
-            content: `Summarize these tasks into a clean daily draft:\n${doc.inputs.join('\n')}. The format should be like as someone is giving the summary of his/her task of whole day. It should be in numeric bullet points. Do not add anything else`,
+            content: `Summarize these tasks into a clean daily draft:\n${doc.inputs.join('\n')}. The format should be like as someone is giving the summary of his/her task of whole day. It should be in numeric bullet points. Make sure if there is one task so the summary should have one task, if two then two. Make it crispy and short to the points. Do not add anything else`,
           },
         ],
       }),
